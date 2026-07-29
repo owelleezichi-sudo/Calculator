@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+      body {
+        padding-top: 50px;
+        padding-left: 20px;
+        padding-bottom: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color:  rgb(30, 58, 138);
+      }
+      p {
+        margin: 0;
+        padding: 0x;
+      }
+      .number-button {
+        display: flex;
+        font-size: 24px;
+        font-family: poppins;
+        font-weight: bold;
+        color: #000000;
+        background-color: linear-gradient(145deg, #374151, #4b5563);
+        border-radius: 65px;
+        padding: 15px;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition:  opacity 0.3s;
+      }
+      .number-button:active {
+        opacity: 0.5;
+      }
+      .cal-buttons {
+        background-color: linear-gradient(145deg, #1f2937, #111827);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 200px;
+        padding: 2px;
+        margin-bottom: 5px;
+      }
+      .clear-button {
+        font-size: 26px;
+        font-family: poppins;
+        font-weight: bold;
+        color: red;
+        background-color: linear-gradient(145deg, #ef4444, #dc2626);
+        border-radius: 65px;
+        border: none;
+        padding: 15px;
+        margin-right: 2px;
+        transition:  opacity 0.3s;
+      }
+      .clear-button:active {
+        opacity: 0.5;
+      }
+      .sign-button {
+        font-size: 26px;
+        font-family: poppins;
+        font-weight: bold;
+        color: blue;
+        background-color: linear-gradient(145deg, #3b82f6, #2563eb);
+        border-radius: 65px;
+        border: none;
+        padding: 15px;
+        transition: opacity 0.3s;
+      }
+      .sign-button:active {
+        opacity: 0.5;
+      }
+      .equal-to-button {
+        font-family: poppins;
+        font-size: 28px;
+        font-weight: bold;
+        color: green;
+        background-color: linear-gradient(145deg, #2563eb, #1d4ed8);
+        border-radius: 65px;
+        border: none;
+        padding: 15px;
+        transition:  opacity 0.3s;
+      }
+      .equal-to-button:active {
+        opacity: 0.5;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:hover {
+        transform: scale(1.05);
+      }
+      .calculator {
+    animation: zoomIn 0.8s ease;
+    background-color:  #1f2937;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    width: 200px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+      .display {
+        display: flex;
+        font-size: clamp(20px, 5vw, 26px);
+        width: 100%;
+        padding-top: 20px;
+        border: none;
+        border-radius: 4px;
+        white-space: nowrap;
+        overflow-x: auto;
+        box-sizing: border-box;
+      }
+      .display-div {
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="calculator">
+      <div class="display-div">
+         <input class="display" type="text" id="display" readonly>
+      </div>
+       <div class="cal-buttons">
+      <div>
+        <button class="clear-button" onclick="
+        calculation = '';
+        console.log(calculation);
+        updateDisplay();
+         ">C</button>
+      </div>
+
+      <div>
+       <button class="sign-button"  onclick="
+        calculation /=  100 ; 
+        console.log(calculation); 
+        updateDisplay();
+        ">%</button>
+      </div>
+    
+      <diV>
+        <button class="sign-button"  onclick="
+      calculation = calculation.slice(0,-1);
+      console.log(calculation);
+      updateDisplay();
+      ">X</button>
+      </diV>
+
+      <div>
+         <button class="sign-button" onclick="
+      calculation += ' / ' ;
+      console.log(calculation);
+      updateDisplay();
+      ">/</button>
+      </div>
+    </div>
+
+    <div class="cal-buttons">
+      <div>
+        <button class="number-button" onclick="
+      calculation += '7';
+      console.log(calculation);
+      updateDisplay();
+      ">7</button>
+      </div>
+
+      <div>
+       <button class="number-button"  onclick="
+      calculation += '8';
+      console.log(calculation);
+      updateDisplay();
+      ">8</button> 
+      </div>
+    
+      <diV>
+        <button class="number-button"  onclick="
+      calculation += '9';
+      console.log(calculation);
+      updateDisplay();
+      ">9</button>
+      </diV>
+
+      <div>
+         <button class="sign-button" onclick="
+      calculation += ' * ';
+      console.log(calculation)
+      updateDisplay();
+      ">*</button>
+      </div>
+    </div>
+
+    <div class="cal-buttons">
+      <div>
+        <button class="number-button" onclick="
+      calculation += '4';
+      console.log(calculation);
+      updateDisplay();
+      ">4</button>
+      </div>
+
+      <div>
+       <button class="number-button"  onclick="
+      calculation += '5';
+      console.log(calculation);
+      updateDisplay();
+      ">5</button> 
+      </div>
+    
+      <diV>
+        <button class="number-button"  onclick="
+      calculation += '6';
+      console.log(calculation);
+      updateDisplay();
+      ">6</button>
+      </diV>
+
+      <div>
+         <button class="sign-button" onclick="
+      calculation += ' - ';
+      console.log(calculation)
+      updateDisplay();
+      ">-</button>
+      </div>
+    </div>
+
+    <div class="cal-buttons">
+      <div>
+        <button class="number-button" onclick="
+      calculation += '1';
+      console.log(calculation);
+      updateDisplay();
+      ">1</button>
+      </div>
+
+      <div>
+       <button class="number-button"  onclick="
+      calculation += '2';
+      console.log(calculation);
+      updateDisplay();
+      ">2</button> 
+      </div>
+    
+      <diV>
+        <button class="number-button"  onclick="
+      calculation += '3';
+      console.log(calculation);
+      updateDisplay();
+      ">3</button>
+      </diV>
+
+      <div>
+         <button class="sign-button" onclick="
+      calculation += ' + ';
+      console.log(calculation);
+      updateDisplay();
+      ">+</button>
+      </div>
+    </div>
+
+    <div class="cal-buttons">
+      <div>
+        <button class="clear-button" onclick="
+      alert ('This button was Added for adding Sake');
+      ">R</button>
+      </div>
+
+      <div>
+       <button class="number-button"  onclick="
+      calculation += '0';
+      console.log(calculation);
+      updateDisplay();
+      ">0</button> 
+      </div>
+    
+      <diV>
+        <button class="number-button"  onclick="
+      calculation += '.';
+      console.log(calculation);
+      updateDisplay();
+      ">.</button>
+      </diV>
+
+      <div>
+        <button class="equal-to-button"  onclick="
+      calculation = eval(calculation);
+      alert(calculation)
+      updateDisplay();
+      console.log(calculation);
+      ">=</button>
+      </div>
+    </div>
+    </div>
+    <script>
+      let calculation = '';
+      function updateDisplay() {
+        document.getElementById('display').value = calculation;
+      }
+      const display = document.getElementById("display");
+      display.addEventListener("input", () => {
+        calculation=display.value;
+        
+        if ( display.value.length >12) {
+          display.style.fontSize = "24px"
+        }
+        if ( display.value.length >15) {
+          display.style.fontSize = "22px"
+        }
+        if ( display.value.length >20) {
+          display.style.fontSize = "20px"
+        }
+        if ( display.value.length <=10) {
+          display.style.fontSize = "26px"
+        }
+
+
+      })
+
+    </script>
+  </body>
+</html>
